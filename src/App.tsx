@@ -1,24 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import Advice from "./components/Advice";
+import Button from "./components/Button";
 
 function App() {
+  const [show, setShow] = useState(false);
+  const [isQuery, setIsQuery] = useState(false);
+
+  const handleClick = () => {
+    let element = document.getElementById("advice");
+    setTimeout(() => {
+      element?.classList.add("opacityIN");
+    }, 0);
+    setShow(true);
+    setIsQuery(!isQuery);
+    element?.classList.remove("opacityIN");
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {show && <Advice isQuery={isQuery} />}
+      <Button
+        onClick={handleClick}
+        children={!show ? "GET WISE ADVICE" : "NEW ADVICE"}
+      />
     </div>
   );
 }

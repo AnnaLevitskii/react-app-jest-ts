@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color:rgba(250, 235, 215, 0.77);
+  padding: 100px;
 }
 
 .App-logo {
@@ -28,6 +30,15 @@
   color: #61dafb;
 }
 
+.btn{
+  margin: 20px;
+  padding: 4px;
+  color: #ffffff;
+  background-color:rgba(26, 28, 26, 0.706);
+  border: 1px groove rgba(0, 0, 0, 0.439);
+  border-radius: 2px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -36,3 +47,29 @@
     transform: rotate(360deg);
   }
 }
+
+  .opacityIN {
+    animation: opacityAnimationIN 5s ease-in;
+    
+  }
+  .opacityOUT {
+    animation: opacityAnimationOUT 5s ease-in;
+    
+  }
+  #advice{
+    font-size: 20px;
+  }
+
+
+
+@keyframes opacityAnimationIN {
+  from{color: rgba(0, 0, 0, 0);}
+  to{color: rgba(0, 0, 0, 0.999);}
+}
+@keyframes opacityAnimationOUT {
+  from{color: rgba(0, 0, 0, 0.999);}
+  to{color: rgba(0, 0, 0, 0);}
+}
+  
+  
+  
