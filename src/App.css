@@ -39,6 +39,15 @@
   border-radius: 2px;
 }
 
+#form{
+  margin-top: 300px;
+  display: grid;
+}
+
+#form-textarea{
+  margin-top: 0px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -59,7 +68,6 @@
   #advice{
     font-size: 20px;
   }
-
 
 
 @keyframes opacityAnimationIN {

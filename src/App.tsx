@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import Advice from "./components/Advice";
 import Button from "./components/Button";
+import Message from "./components/Message";
 
 function App() {
   const [show, setShow] = useState(false);
@@ -20,11 +21,16 @@ function App() {
 
   return (
     <div className="App">
-      {show && <Advice isQuery={isQuery} />}
-      <Button
-        onClick={handleClick}
-        children={!show ? "GET WISE ADVICE" : "NEW ADVICE"}
-      />
+      <div>
+        {show && <Advice isQuery={isQuery} />}
+        <Button
+          onClick={handleClick}
+          children={!show ? "GET WISE ADVICE" : "NEW ADVICE"}
+        />
+      </div>
+      <div>
+        <Message />
+      </div>
     </div>
   );
 }
