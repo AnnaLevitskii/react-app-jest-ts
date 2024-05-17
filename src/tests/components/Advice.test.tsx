@@ -1,5 +1,6 @@
 import { cleanup, render, screen, waitFor } from "@testing-library/react";
 import Advice from "../../components/Advice";
+import { server, rest } from "../mock/testServer";
 
 describe("Advice", () => {
   afterEach(() => {
@@ -18,6 +19,25 @@ describe("Advice", () => {
     expect(advice).toBeInTheDocument();
     await waitFor(() => {
       expect(advice).not.toBeEmptyDOMElement();
+      expect(advice).toHaveTextContent("Mocked");
+    });
+  });
+
+  it("should handle properly with null value", async () => {
+    server.use(
+      rest.get(
+        "https://api.adviceslip.com/advice",
+        (req: any, res: any, ctx: any) => {
+          return res(ctx.status(404));
+        }
+      )
+    );
+    const { container } = render(<Advice isQuery={true} />);
+    const advice = container.querySelector("#advice");
+    expect(advice).toBeInTheDocument();
+    await waitFor(() => {
+      expect(advice).toBeEmptyDOMElement();
+      expect(advice).toThrowError;
     });
   });
 });

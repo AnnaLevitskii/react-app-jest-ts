@@ -13,8 +13,11 @@ function Advice({ isQuery }: Props) {
         const { slip } = await response.json();
         setAdvice(slip.advice);
         console.log(advice);
+        if (!response.ok) {
+          return `Response status : ${response.status}`;
+        }
       } catch (error) {
-        console.log("error", error);
+        throw new Error(`Error: ${error}`);
       }
     };
 
