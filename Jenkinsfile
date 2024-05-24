@@ -15,7 +15,9 @@ pipeline {
         }
         stage('build') {
             when{
-                CODE_CHANGES > 0
+                expression{
+                    CODE_CHANGES > 0
+                }
             }
             steps {
                 echo 'build'
