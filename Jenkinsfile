@@ -14,8 +14,10 @@ pipeline {
             }
         }
         stage('build') {
-            if(CODE_CHANGES > 0) {
-                echo 'build'
+            steps {
+                if(CODE_CHANGES > 0) {
+                    echo 'build'
+                }
             }
         }
         stage('testing') {
