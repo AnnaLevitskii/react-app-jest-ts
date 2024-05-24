@@ -20,12 +20,12 @@ pipeline {
                 }
             }
             steps {
-                echo 'build'
+                echo "build step"
             }
         }
         stage('testing') {
             steps {
-                echo 'testing'
+                echo "testing"
                 nodejs('NodeJs_22'){
                     sh 'npm test'
                 }
