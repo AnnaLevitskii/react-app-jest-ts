@@ -14,17 +14,14 @@ pipeline {
             }
         }
         stage('build') {
-            when{
-                expression{
-                    CODE_CHANGES > 0
+            when{CODE_CHANGES > 0}{
+                steps {
+                    echo 'build'
+                    nodejs('NodeJs_22'){
+                        sh 'npm run build'
+                    }
                 }
-            }
-            steps {
-                echo 'build'
-                nodejs('NodeJs_22'){
-                    sh 'npm run build'
-                }
-            }
+            }  
         }
         stage('testing') {
             steps {
