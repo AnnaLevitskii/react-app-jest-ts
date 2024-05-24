@@ -15,14 +15,13 @@ pipeline {
         }
         stage('build') {
             when{
-                expression{
-                //     BRANCH_NAME=='dev'&& CODE_CHANGES== true
-                     CODE_CHANGES > 0
-                }
-
+                CODE_CHANGES > 0
             }
             steps {
                 echo 'build'
+                nodejs('NodeJs_22'){
+                    sh 'npm run build'
+                }
             }
         }
         stage('testing') {
