@@ -2,15 +2,13 @@ def changeCount = 0
 
 pipeline {
     agent any
-    enviroment{
-        
-    }
     stages {
         stage('check') {
-                script {
+                
+                steps {
+                    script {
                     changeCount = currentBuild.changeSets.size()
                 }
-                steps {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
                 echo "${changeCount} commit(s) since last buid."
             }
