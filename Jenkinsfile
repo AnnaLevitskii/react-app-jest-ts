@@ -18,7 +18,7 @@ pipeline {
         stage('build') {
             when{
                 expression{
-                    params.
+                    params.isBuild
                 }
             }
             steps {
