@@ -2,15 +2,27 @@ def changeCount = 0
 
 pipeline {
     agent any
+    parameters {
+        booleanParam(name: 'isBuild', defaultValue: false, description: '')
+    }
     stages {
         stage('check') {
-                
                 steps {
                     script {
                     changeCount = currentBuild.changeSets.size()
                 }
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
                 echo "${changeCount} commit(s) since last buid."
+            }
+        }
+        stage('build') {
+            when{
+                expression{
+                    params.
+                }
+            }
+            steps {
+            echo "build"
             }
         }
         stage('testing') {
