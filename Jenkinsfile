@@ -13,16 +13,16 @@ pipeline {
                 echo "${changeCount} commit(s) since last buid."
             }
         }
-        stage('build') {
-            when{
-                expression{
-                     CODE_CHANGES > 0
-                }
-            }
-            steps {
-                echo "build step"
-            }
-        }
+        // stage('build') {
+        //     when{
+        //         expression{
+        //              CODE_CHANGES > 0
+        //         }
+        //     }
+        //     steps {
+        //         echo "build step"
+        //     }
+        // }
         stage('testing') {
             steps {
                 echo "testing"
