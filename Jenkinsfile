@@ -13,29 +13,19 @@ pipeline {
                 echo "${changeCount} commit(s) since last buid."
             }
         }
-        stage('build') {
-            when{
-                expression{
-                     CODE_CHANGES > 0 
+        stage('testing') {
+            steps {
+                echo "testing"
+                
+                nodejs('NodeJs_22'){
+                    sh 'npm install @testing-library/jest-dom'
                 }
+                nodejs('NodeJs_22'){
+                    sh 'npm test'
+                }
+                
             }
-            // steps {
-            //     echo "build step"
-            // }
         }
-        // stage('testing') {
-        //     steps {
-        //         echo "testing"
-                
-        //         nodejs('NodeJs_22'){
-        //             sh 'npm install @testing-library/jest-dom'
-        //         }
-        //         nodejs('NodeJs_22'){
-        //             sh 'npm test'
-        //         }
-                
-        //     }
-        // }
     }
     post{
         always{
