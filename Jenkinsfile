@@ -28,6 +28,9 @@ pipeline {
                 echo "testing"
                 
                 nodejs('NodeJs_22'){
+                    sh 'npm install @testing-library/jest-dom'
+                }
+                nodejs('NodeJs_22'){
                     sh 'npm test'
                 }
                 nodejs('NodeJs_22'){
