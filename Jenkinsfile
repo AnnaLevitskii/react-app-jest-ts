@@ -14,11 +14,11 @@ pipeline {
             }
         }
         stage('build') {
-            when{
-                expression{
-                     CODE_CHANGES > 0
-                }
-            }
+            // when{
+            //     expression{
+            //          CODE_CHANGES > 0 
+            //     }
+            // }
             steps {
                 echo "build step"
             }
