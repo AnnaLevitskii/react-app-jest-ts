@@ -23,6 +23,9 @@ pipeline {
             }
             steps {
             echo "build"
+            nodejs('NodeJs_22'){
+                    sh 'npm run build'
+                }
             }
         }
         stage('testing') {
