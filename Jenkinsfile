@@ -33,9 +33,7 @@ pipeline {
                 nodejs('NodeJs_22'){
                     sh 'npm test'
                 }
-                nodejs('NodeJs_22'){
-                    sh 'a'
-                }
+                
             }
         }
     }
