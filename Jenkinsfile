@@ -33,10 +33,10 @@ pipeline {
                     sh 'npm -v'
                 }
                 nodejs('NodeJs_22'){
-                    sh 'npm start'
+                    sh 'npm test'
                 }
                 nodejs('NodeJs_22'){
-                    sh 'npm test'
+                    sh 'a'
                 }
             }
         }
