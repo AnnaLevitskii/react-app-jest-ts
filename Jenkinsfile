@@ -3,26 +3,26 @@ def changeCount = 0
 pipeline {
     agent any
     stages {
-        // stage('check') {
+        stage('check') {
                 
-        //         steps {
-        //             script {
-        //             changeCount = currentBuild.changeSets.size()
-        //         }
-        //         echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
-        //         echo "${changeCount} commit(s) since last buid."
-        //     }
-        // }
-        // stage('build') {
-        //     when{
-        //         expression{
-        //              CODE_CHANGES > 0
-        //         }
-        //     }
-        //     steps {
-        //         echo "build step"
-        //     }
-        // }
+                steps {
+                    script {
+                    changeCount = currentBuild.changeSets.size()
+                }
+                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+                echo "${changeCount} commit(s) since last buid."
+            }
+        }
+        stage('build') {
+            when{
+                expression{
+                     CODE_CHANGES > 0
+                }
+            }
+            steps {
+                echo "build step"
+            }
+        }
         stage('testing') {
             steps {
                 echo "testing"
