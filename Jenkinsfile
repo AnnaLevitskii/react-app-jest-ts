@@ -27,6 +27,9 @@ pipeline {
             steps {
                 echo "testing"
                 nodejs('NodeJs_22'){
+                    sh 'npm start'
+                }
+                nodejs('NodeJs_22'){
                     sh 'npm test'
                 }
             }
