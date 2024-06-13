@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: react-app-jest-ts
+    image: react-app-jest-ts-icon
+    build:
+      context: .
+    ports:
+      - "80:80"
+  
+
